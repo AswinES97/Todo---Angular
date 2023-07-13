@@ -1,0 +1,29 @@
+<div class="example-container">
+  <span class="heading">To do</span>
+
+  <div
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="todo"
+    [cdkDropListConnectedTo]="[doneList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="example-box" style="background-color: rgba(155, 10, 10, 0.932);" *ngFor="let item of todo" cdkDrag><span #TodoValue> {{ item }}</span><span style="cursor: pointer;" (click)="handleTodoDelete(TodoValue.innerText)">X</span></div>
+  </div> 
+</div>
+
+<div class="example-container">
+  <span class="heading">Done</span>
+
+  <div
+    cdkDropList
+    #doneList="cdkDropList"
+    [cdkDropListData]="done"
+    [cdkDropListConnectedTo]="[todoList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div class="example-box" style="background-color:rgb(1, 87, 1) " *ngFor="let item of done" cdkDrag><span #DoneValue>{{item }}</span>  <span style="cursor: pointer;" (click)="handleDoneDelete(DoneValue.innerText)">X</span></div>
+  </div>
+</div>

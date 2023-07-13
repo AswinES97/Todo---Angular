@@ -1,0 +1,24 @@
+<div
+  class="container-fluid h-100 d-flex justify-content-center align-items-center"
+>
+  <div class="d-flex justify-content-center align-items-center p-5 bg">
+    <div class="row col-3 me-3">
+      <div id="menu">
+        <app-menu
+        [data]="data"
+        (emitData)="handleEmitedData($event)"
+        (addTodo)="handleAddTodo($event)"
+        > </app-menu>
+      </div>
+    </div>
+    <div class="row col-4 ms-3">
+      <div id="display">
+        <app-display
+        [displayData]="data[0]"
+        [emitedData] = "emitedData"
+        (changeTodo)="handleChangeTodo($event)"
+        > </app-display>
+      </div>
+    </div>
+  </div>
+</div>

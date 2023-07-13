@@ -1,0 +1,46 @@
+<div class="py-5">
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Add Todo
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5> -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="dateInput" class="form-label">Date</label>
+              <input type="date" class="form-control" id="dateInput" #dateInput required>
+            </div>
+            <div class="mb-3">
+              <label for="todoInput" class="form-label">To-Do</label>
+              <input type="text" class="form-control" id="todoInput" #todoInput required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" (click)="submitForm(dateInput.value, todoInput.value)"  data-bs-dismiss="modal" aria-label="Close">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div>
+  <ul class="list-group">
+    <li
+      class="list-group-item"
+      *ngFor="let date of data"
+      (click)="changeDisplay(date)"
+    #date>
+      {{ date.date }}
+    </li>
+  </ul>
+</div>
